@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Lab / Portfolio</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="brand">My Lab</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#research">Research</a>
+      <a href="#members">Members</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <h1>Medical AI & Robotics Lab</h1>
+      <p>Short mission statement. One sentence about what you do and why it matters.</p>
+      <div class="cta">
+        <a class="btn" href="#research">Explore Research</a>
+        <a class="btn outline" href="#contact">Contact</a>
+      </div>
+    </section>
+
+    <section id="research" class="section">
+      <h2>Research</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Area 1</h3>
+          <p>2–3 lines description.</p>
+        </article>
+        <article class="card">
+          <h3>Area 2</h3>
+          <p>2–3 lines description.</p>
+        </article>
+        <article class="card">
+          <h3>Area 3</h3>
+          <p>2–3 lines description.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="members" class="section">
+      <h2>Members</h2>
+      <div class="grid">
+        <article class="card person">
+          <div class="avatar"></div>
+          <div>
+            <h3>Your Name</h3>
+            <p>Role • Short bio</p>
+          </div>
+        </article>
+        <article class="card person">
+          <div class="avatar"></div>
+          <div>
+            <h3>Member Name</h3>
+            <p>Role • Short bio</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications" class="section">
+      <h2>Publications</h2>
+      <ul class="pubs">
+        <li><b>2026</b> Paper title. <i>Venue</i>. <a href="#">PDF</a></li>
+        <li><b>2025</b> Paper title. <i>Venue</i>. <a href="#">DOI</a></li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
+      <p>Location: University / City</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="y"></span> My Lab • Built with GitHub Pages</p>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
