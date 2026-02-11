@@ -2,30 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>DIIM LAB | Home</title>
+  <title>DIIM LAB | Design Innovation and Intelligent Manufacturing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- استایل ساده اولیه، بعداً تمیزترش می‌کنیم یا می‌بریم تو فایل CSS جدا -->
   <style>
     :root {
-      --primary: #b3002d;
-      --dark: #111827;
-      --light: #f9fafb;
-      --text-main: #111827;
-      --text-muted: #6b7280;
+      --primary: #1e3a8a;      /* آبی تیره دانشگاهی */
+      --primary-light: #3b82f6;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      box-sizing: border-box;
+      font-family: "Segoe UI", system-ui, sans-serif;
     }
 
     body {
       background: #ffffff;
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     a {
@@ -33,40 +34,35 @@
       color: inherit;
     }
 
-    /* هدر بالا */
+    /* ---------------- HEADER ---------------- */
     header {
       position: sticky;
       top: 0;
       z-index: 10;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e5e7eb;
+      border-bottom: 1px solid var(--border);
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
 
     .nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 0;
-    }
-
-    .logo {
-      display: flex;
-      flex-direction: column;
+      align-items: center;
+      padding: 0.9rem 0;
     }
 
     .logo-title {
+      font-size: 1rem;
       font-weight: 800;
-      letter-spacing: 0.08em;
-      font-size: 0.9rem;
-      text-transform: uppercase;
       color: var(--primary);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
     .logo-subtitle {
@@ -90,7 +86,7 @@
     }
 
     .nav-cta {
-      padding: 0.4rem 0.9rem;
+      padding: 0.45rem 1rem;
       border-radius: 999px;
       border: 1px solid var(--primary);
       color: var(--primary);
@@ -105,15 +101,15 @@
       color: #fff;
     }
 
-    /* سکشن هیرو */
+    /* ---------------- HERO ---------------- */
     .hero {
-      padding: 3.5rem 0 3rem;
-      background: radial-gradient(circle at top left, #fee2e2 0, #ffffff 45%);
+      padding: 4rem 0 3rem;
+      background: linear-gradient(135deg, #eff6ff 0%, #ffffff 60%);
     }
 
     .hero-inner {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      grid-template-columns: 3fr 2.2fr;
       gap: 2.5rem;
       align-items: center;
     }
@@ -121,18 +117,18 @@
     .hero-kicker {
       font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.15em;
       color: var(--primary);
       font-weight: 700;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.8rem;
     }
 
     .hero-title {
       font-size: 2.4rem;
       font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1rem;
+      line-height: 1.2;
       color: var(--dark);
+      margin-bottom: 1rem;
     }
 
     .hero-highlight {
@@ -140,23 +136,22 @@
     }
 
     .hero-subtitle {
-      font-size: 0.98rem;
+      font-size: 1rem;
       color: var(--text-muted);
-      max-width: 32rem;
+      max-width: 35rem;
       margin-bottom: 1.5rem;
     }
 
     .hero-actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.8rem;
       margin-bottom: 1.5rem;
     }
 
     .btn-primary {
       background: var(--primary);
       color: #fff;
-      padding: 0.7rem 1.4rem;
+      padding: 0.75rem 1.4rem;
       border-radius: 999px;
       font-size: 0.85rem;
       font-weight: 600;
@@ -165,13 +160,13 @@
     }
 
     .btn-primary:hover {
-      opacity: 0.9;
+      background: var(--primary-light);
     }
 
     .btn-secondary {
       border-radius: 999px;
-      border: 1px solid #d1d5db;
-      padding: 0.7rem 1.4rem;
+      border: 1px solid var(--border);
+      padding: 0.75rem 1.4rem;
       font-size: 0.85rem;
       font-weight: 500;
       color: var(--text-main);
@@ -186,15 +181,9 @@
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
-      font-size: 0.8rem;
+      gap: 1.2rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
-    }
-
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
     }
 
     .hero-meta-dot {
@@ -204,13 +193,13 @@
       background: var(--primary);
     }
 
-    /* ستون سمت راست هیرو (گرافیک ساده) */
+    /* ---------------- HERO PANEL ---------------- */
     .hero-panel {
-      border-radius: 1.25rem;
-      border: 1px solid #e5e7eb;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
       background: #ffffff;
       padding: 1.5rem;
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
     }
 
     .hero-panel-title {
@@ -223,9 +212,10 @@
     }
 
     .hero-panel-main {
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
       margin-bottom: 0.75rem;
+      color: var(--primary);
     }
 
     .hero-panel-tag {
@@ -233,21 +223,21 @@
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      padding: 0.2rem 0.6rem;
+      padding: 0.25rem 0.6rem;
       border-radius: 999px;
-      background: #fef2f2;
+      background: #dbeafe;
       color: var(--primary);
       margin-bottom: 1rem;
     }
 
     .hero-panel-list {
       list-style: none;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
     }
 
     .hero-panel-list li {
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.45rem;
     }
 
     .hero-panel-list li::before {
@@ -255,34 +245,26 @@
       color: var(--primary);
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 850px) {
       .hero-inner {
         grid-template-columns: 1fr;
       }
-
       .nav-links {
-        display: none; /* فعلاً برای موبایل ساده‌اش می‌کنیم */
-      }
-
-      .hero {
-        padding-top: 2.5rem;
-      }
-
-      .hero-title {
-        font-size: 2rem;
+        display: none;
       }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- هدر -->
+  <!-- HEADER -->
   <header>
     <div class="container">
       <nav class="nav">
-        <div class="logo">
-          <span class="logo-title">DIIM LAB</span>
-          <span class="logo-subtitle">Data, Imaging & Intelligent Medicine</span>
+        <div>
+          <div class="logo-title">DIIM LAB</div>
+          <div class="logo-subtitle">Design Innovation & Intelligent Manufacturing</div>
         </div>
 
         <div class="nav-links">
@@ -299,55 +281,55 @@
     </div>
   </header>
 
-  <!-- سکشن هیرو -->
+  <!-- HERO -->
   <section class="hero">
-  <div class="container hero-inner">
-    <div>
-      <div class="hero-kicker">University of Guelph</div>
+    <div class="container hero-inner">
 
-      <h1 class="hero-title">
-        Welcome to the <span class="hero-highlight">Design Innovation and Intelligent Manufacturing (DIIM) Lab</span>
-      </h1>
+      <div>
+        <div class="hero-kicker">University of Guelph</div>
 
-      <p class="hero-subtitle">
-        The DIIM Lab, established by Dr. Sheng Yang in September 2020, is affiliated with the College of Engineering at the University of Guelph in Guelph, ON, Canada. 
-        We are a multidisciplinary research team working across mechanical engineering, computer engineering, and data science.
-      </p>
+        <h1 class="hero-title">
+          Welcome to the <span class="hero-highlight">Design Innovation and Intelligent Manufacturing (DIIM) Lab</span>
+        </h1>
 
-      <div class="hero-actions">
-        <a href="#research" class="btn-primary">Our research</a>
-        <a href="#about" class="btn-secondary">Learn more about DIIM LAB</a>
+        <p class="hero-subtitle">
+          The DIIM Lab, established by Dr. Sheng Yang in September 2020, is part of the College of Engineering at the University of Guelph. 
+          We are a multidisciplinary research team spanning mechanical engineering, computer engineering, and data science.
+          Our mission is to develop next‑generation intelligent engineering systems through synergistic research on AI, digital twins, and human‑centered design.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#research" class="btn-primary">Our research</a>
+          <a href="#about" class="btn-secondary">Learn more</a>
+        </div>
+
+        <div class="hero-meta">
+          <span><span class="hero-meta-dot"></span> AI & Digital Twins</span>
+          <span><span class="hero-meta-dot"></span> Human-centered Design</span>
+          <span><span class="hero-meta-dot"></span> Smart Manufacturing</span>
+        </div>
       </div>
 
-      <div class="hero-meta">
-        <span><span class="hero-meta-dot"></span> AI & Digital Twins</span>
-        <span><span class="hero-meta-dot"></span> Human-centered Design</span>
-        <span><span class="hero-meta-dot"></span> Intelligent Engineering Systems</span>
-      </div>
+      <aside class="hero-panel">
+        <div class="hero-panel-title">Research Focus</div>
+
+        <div class="hero-panel-main">
+          Intelligent Engineering Systems
+        </div>
+
+        <div class="hero-panel-tag">DIIM LAB</div>
+
+        <ul class="hero-panel-list">
+          <li>AI-driven design and manufacturing</li>
+          <li>Digital twins for engineering systems</li>
+          <li>Human-centered intelligent design</li>
+          <li>Smart manufacturing & personalized products</li>
+          <li>Precision agriculture & green energy</li>
+        </ul>
+      </aside>
+
     </div>
-
-    <aside class="hero-panel">
-      <div class="hero-panel-title">Research focus</div>
-
-      <div class="hero-panel-main">
-        Next-generation intelligent engineering systems
-      </div>
-
-      <div class="hero-panel-tag">DIIM LAB</div>
-
-      <ul class="hero-panel-list">
-        <li>AI-driven design and manufacturing</li>
-        <li>Digital twins for engineering systems</li>
-        <li>Human-centered intelligent design</li>
-        <li>Smart manufacturing & personalized products</li>
-        <li>Precision agriculture & green energy applications</li>
-      </ul>
-    </aside>
-  </div>
-</section>
-
-
-  <!-- اینجا بعداً سکشن‌های بعدی (About, Research, People, ...) رو اضافه می‌کنیم -->
+  </section>
 
 </body>
 </html>
