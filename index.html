@@ -1,116 +1,343 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
+  <title>DIIM LAB | Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI Lab</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- استایل ساده اولیه، بعداً تمیزترش می‌کنیم یا می‌بریم تو فایل CSS جدا -->
+  <style>
+    :root {
+      --primary: #b3002d;
+      --dark: #111827;
+      --light: #f9fafb;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* هدر بالا */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .logo-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* سکشن هیرو */
+    .hero {
+      padding: 3.5rem 0 3rem;
+      background: radial-gradient(circle at top left, #fee2e2 0, #ffffff 45%);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .hero-highlight {
+      color: var(--primary);
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-main);
+      background: #fff;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    /* ستون سمت راست هیرو (گرافیک ساده) */
+    .hero-panel {
+      border-radius: 1.25rem;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      padding: 1.5rem;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+    }
+
+    .hero-panel-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-panel-main {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-panel-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: #fef2f2;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .hero-panel-list {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-panel-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-panel-list li::before {
+      content: "• ";
+      color: var(--primary);
+    }
+
+    @media (max-width: 800px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none; /* فعلاً برای موبایل ساده‌اش می‌کنیم */
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- TOP NAV -->
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="index.html">AI Lab</a>
+  <!-- هدر -->
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div class="logo">
+          <span class="logo-title">DIIM LAB</span>
+          <span class="logo-subtitle">Data, Imaging & Intelligent Medicine</span>
+        </div>
 
-      <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#people">People</a>
+          <a href="#publications">Publications</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+        </div>
 
-      <nav class="nav" id="nav">
-        <a href="index.html">home</a>
-        <a href="research.html">research</a>
-        <a href="publications.html">publications</a>
-        <a href="members.html">members</a>
-        <a href="openings.html">openings</a>
-        <a href="news.html">news</a>
-        <a href="contact.html">contact</a>
+        <a href="#join" class="nav-cta">Join us</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO (VIDEO BACKGROUND) -->
+  <!-- سکشن هیرو -->
   <section class="hero">
-    <!-- اگر ویدئو نداری، این line رو حذف کن -->
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="assets/media/hero.mp4" type="video/mp4">
-    </video>
+    <div class="container hero-inner">
+      <div>
+        <div class="hero-kicker">University of Guelph</div>
+        <h1 class="hero-title">
+          Deep Intelligence for <span class="hero-highlight">Imaging & Medicine</span>
+        </h1>
+        <p class="hero-subtitle">
+          DIIM LAB develops AI and machine learning methods for medical imaging, diagnosis support,
+          and data-driven healthcare at the University of Guelph.
+        </p>
 
-    <div class="hero-overlay"></div>
-
-    <div class="container hero-content">
-      <h1>Medical AI & Diagnostics</h1>
-      <p class="subtitle">University of Guelph • Your supervisor/lab tagline</p>
-    </div>
-  </section>
-
-  <!-- WELCOME + FEATURES -->
-  <section class="section">
-    <div class="container">
-      <h2>Welcome to Our Lab</h2>
-      <p class="lead">
-        Write 2–3 lines about what your lab does, the motivation, and impact.
-      </p>
-
-      <div class="feature-grid">
-        <div class="feature">
-          <h3>Predictive Health</h3>
-          <p>Early detection and outcome prediction using ML.</p>
+        <div class="hero-actions">
+          <a href="#research" class="btn-primary">Our research</a>
+          <a href="#about" class="btn-secondary">Learn more about DIIM LAB</a>
         </div>
-        <div class="feature">
-          <h3>Holistic Analysis</h3>
-          <p>Multi-modal learning from images, sensors, and clinical data.</p>
-        </div>
-        <div class="feature">
-          <h3>Trusted AI</h3>
-          <p>Explainable, robust, and responsible AI systems.</p>
-        </div>
-        <div class="feature">
-          <h3>Generative AI</h3>
-          <p>Data synthesis, enhancement, and simulation for healthcare.</p>
+
+        <div class="hero-meta">
+          <span><span class="hero-meta-dot"></span> Medical imaging & diagnostics</span>
+          <span><span class="hero-meta-dot"></span> AI, deep learning, data science</span>
         </div>
       </div>
+
+      <aside class="hero-panel">
+        <div class="hero-panel-title">Research focus</div>
+        <div class="hero-panel-main">AI for medical imaging & intelligent medicine</div>
+        <div class="hero-panel-tag">DIIM LAB</div>
+        <ul class="hero-panel-list">
+          <li>Deep learning for MRI, CT, and X-ray</li>
+          <li>Computer-aided diagnosis & prognosis</li>
+          <li>Multimodal clinical data integration</li>
+          <li>Trustworthy and interpretable AI in healthcare</li>
+        </ul>
+      </aside>
     </div>
   </section>
 
-  <!-- PARTNERS -->
-  <section class="section">
-    <div class="container">
-      <h2>Research Partners & Collaborators</h2>
+  <!-- اینجا بعداً سکشن‌های بعدی (About, Research, People, ...) رو اضافه می‌کنیم -->
 
-      <div class="cols-3">
-        <div class="card">
-          <h3>Industry Partners</h3>
-          <ul>
-            <li><a href="#">Partner 1</a></li>
-            <li><a href="#">Partner 2</a></li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Funding & Academic Partners</h3>
-          <ul>
-            <li><a href="#">NSERC</a></li>
-            <li><a href="#">Mitacs</a></li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Research Collaborators</h3>
-          <ul>
-            <li><a href="#">Dr. X</a> — University Y</li>
-            <li><a href="#">Dr. Z</a> — Institute W</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      © <span id="y"></span> AI Lab • Built on GitHub Pages
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js"></script>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>
