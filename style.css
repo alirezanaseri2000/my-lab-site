@@ -1,0 +1,10 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.uog-logo {
+  height: 42px;
+  width: auto;
+}
